@@ -27,7 +27,7 @@ public:
     
     virtual ~EmailAlert();
     EmailAlert();
-    virtual void SetAlert(bool status);
+    void SetAlert(bool status);
 };
 
 class LEDAlert : public IAlerter
