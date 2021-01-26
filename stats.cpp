@@ -55,7 +55,7 @@ void StatsAlerter::checkAndAlert(const std::vector<float>& data)
 	std::vector<IAlerter*>::iterator itr = alerter.begin();
             for (;itr != alerter.end() ; ++ itr)
             {
-               (*itr)->setAlert(true);
+               (*itr)->SetAlert(true);
             }
         }
     }
