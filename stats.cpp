@@ -8,9 +8,16 @@ Stats Statistics::ComputeStatistics(const std::vector<float>& data) {
    stat_ret.min=0;
    stat_ret.max=0;
    
-   if (!data.empty()) //Check data is empty or not
+   if (data.empty()) //Check data is empty or not
     {
-        /*Calculate average value*/
+	   /*if data is empty, assign structure values (average,min,max)as NAN */
+	stat_ret.average = NAN;
+        stat_ret.min = NAN;
+        stat_ret.max = NAN;
+    }
+    else 
+    {
+	 /*Calculate average value*/
         for (auto i : data)
         {
             sum += i;
@@ -22,13 +29,7 @@ Stats Statistics::ComputeStatistics(const std::vector<float>& data) {
 		
 	/*Find minimum value*/
         stat_ret.min = *min_element(data.begin(), data.end());
-    }
-    else 
-    {
-	stat_ret.average = std::nan("");
-        stat_ret.min = std::nan("");
-        stat_ret.max = std::nan("");
-	}
+     }
 	
 	return stat_ret;
 }
