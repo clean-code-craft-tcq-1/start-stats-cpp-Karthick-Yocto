@@ -33,7 +33,7 @@ public:
 class LEDAlert : public IAlerter
 {
 public:
-    bool ledON;
+    bool ledGlows;
     
     virtual ~LEDAlert();
     LEDAlert();
