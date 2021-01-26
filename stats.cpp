@@ -47,16 +47,19 @@ StatsAlerter::StatsAlerter(const float threshold , std::vector<IAlerter*>& alert
     :maxThreshold(threshold) , alerter(alerterlist){}
 
 void StatsAlerter::checkAndAlert(const std::vector<float>& data)
-{
-    for (auto i : data)
-    {
-        if (i > maxThreshold)
-        { 
-	std::vector<IAlerter*>::iterator itr = alerter.begin();
-            for (;itr != alerter.end() ; ++ itr)
-            {
-               (*itr)->SetAlert(true);
-            }
-        }
-    }
+{	
+	bool set_Alert = false;
+	auto stat = Statistics::ComputeStatistics(data);
+	
+
+	if(stat.max > maxThreshold)
+	{
+		set_Alert = true;
+	}
+
+	for(auto itr = alerter.begin();itr != alerter.end() ; ++ itr )
+	{
+		(*itr)->SetAlert(setAlert);
+	}
+ 
 }
