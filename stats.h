@@ -12,3 +12,42 @@ typedef struct stats
 namespace Statistics {
     Stats ComputeStatistics(const std::vector<float>& data);
 }
+/* TestCase:Threshold value check and sent alert*/
+class IAlerter
+{
+public:
+    virtual ~IAlerter(){}
+    virtual void setAlert(bool status) = 0;
+};
+
+class EmailAlert : public IAlerter
+{
+public:
+    bool emailSent;
+    
+    virtual ~EmailAlert();
+    EmailAlert();
+    virtual void SetAlert(bool status);
+};
+
+class LEDAlert : public IAlerter
+{
+public:
+    bool ledGlows;
+    
+    virtual ~LEDAlert();
+    LEDAlert();
+    virtual void SetAlert(bool status);
+};
+
+class StatsAlerter
+{
+private : 
+    float maxTh; 
+    std::vector<IAlerter*> alerter; 
+
+public : 
+    StatsAlerter(const float , std::vector<IAlerter*>& alerterinfo);
+
+    void checkAndAlert(const std::vector<float>& data);
+};
