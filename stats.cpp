@@ -4,9 +4,9 @@ Stats Statistics::ComputeStatistics(const std::vector<float>& data) {
      Stats stat_ret;
    
    float sum=0;
-   stat_ret.s_avg=0;
-   stat_ret.s_min=0;
-   stat_ret.s_max=0;
+   stat_ret.average=0;
+   stat_ret.min=0;
+   stat_ret.max=0;
    
    if (data.empty()) //Check data is empty or not
     {
@@ -21,7 +21,7 @@ Stats Statistics::ComputeStatistics(const std::vector<float>& data) {
         {
             sum += i;
         }
-		stat_ret.s_avg = sum / data.size();
+		stat_ret.average = sum / data.size();
 		
 		/*Find maximum value*/
         stat_ret.max = *max_element(data.begin(), data.end());
