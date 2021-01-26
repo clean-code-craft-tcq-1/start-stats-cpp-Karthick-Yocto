@@ -6,5 +6,5 @@ typedef struct stats
     float max;
 }Stats;
 namespace Statistics {
-    Stats ComputeStatistics(const std::vector<>& data);
+    Stats ComputeStatistics(const std::vector<float>& data);
 }
