@@ -17,7 +17,7 @@ class IAlerter
 {
 public:
     virtual ~IAlerter(){}
-    virtual void setAlert(bool status) = 0;
+    virtual void SetAlert(bool status) = 0;
 };
 
 class EmailAlert : public IAlerter
@@ -27,7 +27,7 @@ public:
     
     virtual ~EmailAlert();
     EmailAlert();
-    void SetAlert(bool status);
+    virtual void SetAlert(bool status);
 };
 
 class LEDAlert : public IAlerter
@@ -37,7 +37,7 @@ public:
     
     virtual ~LEDAlert();
     LEDAlert();
-    void SetAlert(bool status);
+    virtual void SetAlert(bool status);
 };
 
 class StatsAlerter
