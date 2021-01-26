@@ -1,4 +1,8 @@
+#include<iostream>
 #include <vector>
+#include <iterator>
+#include <algorithm>
+#include <cmath>
 typedef struct stats
 {
     float average;
