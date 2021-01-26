@@ -33,7 +33,7 @@ public:
 class LEDAlert : public IAlerter
 {
 public:
-    bool ledGlows;
+    bool ledON;
     
     virtual ~LEDAlert();
     LEDAlert();
@@ -43,11 +43,11 @@ public:
 class StatsAlerter
 {
 private : 
-    float maxTh; 
+    float maxThreshold; 
     std::vector<IAlerter*> alerter; 
 
 public : 
-    StatsAlerter(const float , std::vector<IAlerter*>& alerterinfo);
+    StatsAlerter(const float ma, std::vector<IAlerter*>& alerterlist);
 
     void checkAndAlert(const std::vector<float>& data);
 };
