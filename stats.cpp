@@ -10,9 +10,9 @@ Stats Statistics::ComputeStatistics(const std::vector<float>& data) {
    
    if (data.empty()) //Check data is empty or not
     {
-        stat_ret.average = NAN;
-        stat_ret.min = NAN;
-        stat_ret.max = NAN;
+        stat_ret.average = std::nan("");
+        stat_ret.min = std::nan("");
+        stat_ret.max = std::nan("");
     }
     else 
     {
@@ -27,7 +27,7 @@ Stats Statistics::ComputeStatistics(const std::vector<float>& data) {
         stat_ret.max = *max_element(data.begin(), data.end());
 		
 		/*Find minimum value*/
-        stat_ret.min = *max_element(data.begin(), data.end());
+        stat_ret.min = *min_element(data.begin(), data.end());
 	}
 	
 	return stat_ret;
