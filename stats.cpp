@@ -37,8 +37,8 @@ Stats Statistics::ComputeStatistics(const std::vector<float>& data) {
 EmailAlert::EmailAlert() : emailSent(false){}
 void EmailAlert::SetAlert(bool status){this->emailSent=status;}
 
-LEDAlert::LEDAlert() : ledON(false){}
-void LEDAlert::SetAlert(bool status){this->ledON=status;}
+LEDAlert::LEDAlert() : ledGlows(false){}
+void LEDAlert::SetAlert(bool status){this->ledGlows=status;}
 
 EmailAlert::~EmailAlert(){}
 LEDAlert::~LEDAlert(){}
@@ -50,7 +50,7 @@ void StatsAlerter::checkAndAlert(const std::vector<float>& data)
 {
     for (auto i : data)
     {
-        if (i > maxTh)
+        if (i > maxThreshold)
         { 
 	std::vector<IAlerter*>::iterator itr = alerter.begin();
             for (;itr != alerter.end() ; ++ itr)
