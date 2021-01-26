@@ -37,7 +37,7 @@ public:
     
     virtual ~LEDAlert();
     LEDAlert();
-    virtual void SetAlert(bool status);
+    void SetAlert(bool status);
 };
 
 class StatsAlerter
